@@ -1,2 +1,5 @@
 Metrics/LineLength:
   Max: 150
+
+Style/BlockComments:
+  Exclude: [spec/spec_helper.rb]
