@@ -13,13 +13,14 @@ class Yuzuki
     end
 
     def initialize(japanese_names, non_japanese_names)
-      @japanese_names = Set.new(japanese_names)
-      @non_japanese_names = Set.new(non_japanese_names)
+      @japanese_names = Set.new(japanese_names.map(&:downcase))
+      @non_japanese_names = Set.new(non_japanese_names.map(&:downcase))
     end
 
     def predominantly_japanese?(word)
-      @japanese_names.include?(word) &&
-        !@non_japanese_names.include?(word)
+      downcased_word = word.downcase
+      @japanese_names.include?(downcased_word) &&
+        !@non_japanese_names.include?(downcased_word)
     end
   end
 end
